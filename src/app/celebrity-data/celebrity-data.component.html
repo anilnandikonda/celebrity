@@ -1,0 +1,86 @@
+<style>
+  .right {
+    position: absolute;
+    right: 0px;
+  }
+</style>
+<!--div class="row">
+    <div class="col-md-12">
+      <div style="display: block">
+        <canvas 
+        baseChart 
+        [data]="pieChartData" 
+        [labels]="pieChartLabels" 
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins" 
+        [legend]="pieChartLegend">
+      </canvas>
+      </div>
+    </div>
+  </div-->
+
+<h1>Big Data</h1>
+<h4 style="text-align:center">Top 100 Celebrities appearing in Films Breakdown by year (June 2009 to June 2019)
+  </h4>
+
+<div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [legend]="pieChartLegend"
+          [options]="pieChartOption"
+          [plugins]="pieChartPlugins" 
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+    </canvas>
+</div>
+<p *ngIf="!filmsData"><em>Loading...</em></p>
+<div class="center">
+    <table class='table' *ngIf="filmsData">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>MovieCount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let filmsDat of filmsData">
+          <td>{{ filmsDat.year }}</td>
+          <td>{{ filmsDat.movieCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+<h1>Top 100 Celebrities appearing in Films Breakdown by year </h1>(June 2009 to June 2019)
+
+<div class="right">
+
+  <label>Year: </label>
+  <select (change)="filterCelebrities($event.target.value)">
+    <option value="0">--All--</option>
+    <option *ngFor="let eyear of years" value={{eyear.year}}>
+      {{year}}
+    </option>
+  </select>
+</div>
+
+<p *ngIf="!celebritiesperyears"><em>Loading...</em></p>
+<div class="center">
+<table class='table' *ngIf="celebritiesperyears">
+  <thead>
+    <tr>
+      <th>Celebrity Names</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let celebrity of celebritiesperyears">
+      <td>{{ celebrity.birthName }}</td>
+      <td>{{ celebrity.year }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
