@@ -4,23 +4,88 @@
     right: 0px;
   }
 </style>
-<!--div class="row">
-    <div class="col-md-12">
-      <div style="display: block">
-        <canvas 
-        baseChart 
-        [data]="pieChartData" 
-        [labels]="pieChartLabels" 
-        [chartType]="pieChartType"
-        [options]="pieChartOptions"
-        [plugins]="pieChartPlugins" 
-        [legend]="pieChartLegend">
-      </canvas>
-      </div>
-    </div>
-  </div-->
+<style>
+    .label {
+      color: #f44336;
+      padding: 8px;
+      font-family: Arial;
+      background-color:white
+    }
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+table.myformat th {
+    color: red;
+}
+
+table.myformat td {
+    color: green;
+}
+
+</style>
 
 <h1>Big Data</h1>
+
+<div  style="background-color:black" >
+  <table width="100%" class="myformat">
+      <tr style="background-color: black">
+      <td align="left"><h4><label  style="color:red" >Bio Celeb</label></h4> </td>
+      <td align="left">&nbsp;</td>
+      <td align="right"><h4><label  style="color:white" > GloalTier Studios<br>Welcome, Data Scientist</label></h4></td>
+    </tr>
+    <tr style="background-color: black">
+        <td align="left">&nbsp;</td>
+        <td align="left">&nbsp;</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr style="background-color: black">
+        <td align="left"><label  style="color:white"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Big Data</h4></label>&nbsp;&nbsp;&nbsp;&nbsp;<label  style="color:white" >June 2009 to June 2019</label></td>
+        <td align="left">&nbsp;</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr style="background-color: black">
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+          </tr>
+      <tr>
+      <tr style="background-color: black">
+          <td align="center">&nbsp;<label  style="color:white" > June 2011</label></td>
+          <td align="center">&nbsp;<label  style="color:white" > July 2012</label></td>
+          <td align="center">&nbsp;<label  style="color:white" > June 2009</label></td>
+      </tr>
+      <tr style="background-color: black">
+          <td align="center">&nbsp;<label  style="color:yellow" ><h1>17,203</h1></label></td>
+          <td align="center">&nbsp;<label  style="color:red" ><h1> 9,209</h1></label></td>
+          <td align="center">&nbsp;<label  style="color:green" ><h1> $8B</h1></label></td>
+      </tr>
+      <tr style="background-color: black">
+          <td align="center">&nbsp; <label  style="color:white" >FILMS <br> FEATURING TOP<br> TOP 100 CELEBRITIES <br></label></td>
+          <td align="center">&nbsp; <label  style="color:white" >FILMS <br> FEATURING <br> MORE THAN <br> ONE TOP CELEBRITIES</label></td>
+          <td align="center">&nbsp;<label  style="color:white" >THE DOMESTIC <br> BOX OFFICE <br> FEATURING TOP <br> 100 CELEBRITIES</label></td>
+      </tr>
+      <tr style="background-color: black">
+          <td align="left">&nbsp;</td>
+          <td align="left">&nbsp;</td>
+          <td align="left">&nbsp;</td>
+        </tr>
+        <tr style="background-color: black">
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+          </tr>
+      <tr>
+  </table>
+</div>
+
 <h4 style="text-align:center">Top 100 Celebrities appearing in Films Breakdown by year (June 2009 to June 2019)
   </h4>
 
@@ -36,13 +101,14 @@
           (chartClick)="chartClicked($event)">
     </canvas>
 </div>
+<!--
 <p *ngIf="!filmsData"><em>Loading...</em></p>
 <div class="center">
-    <table border="1" width="100%" class='table' *ngIf="filmsData">
+    <table  width="100%" class='table' *ngIf="filmsData">
       <thead>
         <tr>
-          <th>Year</th>
-          <th>MovieCount</th>
+          <th align="left">Year</th>
+          <th align="left">MovieCount</th>
         </tr>
       </thead>
       <tbody>
@@ -53,26 +119,25 @@
       </tbody>
     </table>
     </div>
+
 <h1>Top 100 Celebrities appearing in Films Breakdown by year </h1>(June 2009 to June 2019)
-
+  -->
 <div class="right">
-
   <label>Year: </label>
-  <select (change)="filterCelebrities($event.target.value)">
+  <select  style="color:blue" (change)="filterCelebrities($event.target.value)">
     <option value="0">--All--</option>
     <option *ngFor="let eyear of years" value={{eyear.year}}>
-      {{year}}
+      {{eyear.year}}
     </option>
   </select>
 </div>
-
 <p *ngIf="!celebritiesperyears"><em>Loading...</em></p>
 <div class="center">
-<table border="1" width="100%" class='table' *ngIf="celebritiesperyears">
+<table  width="100%" class='table' *ngIf="celebritiesperyears">
   <thead>
     <tr>
-      <th>Celebrity Names</th>
-      <th>Year</th>
+      <th align="left">Celebrity Names</th>
+      <th align="left">Year</th>
     </tr>
   </thead>
   <tbody>
